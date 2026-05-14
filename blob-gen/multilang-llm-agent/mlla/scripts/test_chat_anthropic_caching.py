@@ -24,7 +24,7 @@ URL = (
 )
 
 llm = ChatAnthropic(
-    model="claude-sonnet-4-6",
+    model="foundation-sec-8b-reasoning",
     api_key=KEY,
     base_url=URL,
     betas=["extended-cache-ttl-2025-04-11"],

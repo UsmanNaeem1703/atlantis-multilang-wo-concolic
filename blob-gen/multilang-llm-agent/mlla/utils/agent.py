@@ -234,7 +234,7 @@ class BaseAgentTemplate(ABC):
         if len(tools) == 0:
             tools = PrioritizedTool.from_tools(self.file_system_tools, 1)
 
-        model = "gpt-5.4"
+        model = "foundation-sec-8b-reasoning"
 
         if self.llm_with_tools:
             model_with_tools = self.llm_with_tools
@@ -255,7 +255,7 @@ class BaseAgentTemplate(ABC):
         return state
 
     def call_model_with_structured_output(
-        self, state: dict, output_format=None, model="gpt-5.4"
+        self, state: dict, output_format=None, model="foundation-sec-8b-reasoning"
     ):
         messages = state["messages"]
 

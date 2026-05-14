@@ -179,12 +179,12 @@ class SinkDetectVisitor(BCDAVisitor):
 
     def __init__(self, gc: GlobalContext):
         self.llm = LLM(
-            model="gpt-5.4-mini",
+            model="foundation-sec-8b-reasoning",
             config=gc,
             output_format=SinkDetectReport,
         )
         self.llm_sanitizer_validator = LLM(
-            model="gpt-5.4-mini", config=gc, output_format=SanitizerValidationReport
+            model="foundation-sec-8b-reasoning", config=gc, output_format=SanitizerValidationReport
         )
         self.max_retries = 2
         self.gc = gc

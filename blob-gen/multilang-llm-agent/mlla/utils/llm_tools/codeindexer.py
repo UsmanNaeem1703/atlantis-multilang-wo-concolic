@@ -31,7 +31,7 @@ def create_ci_tool(config: GlobalContext) -> PrioritizedTool:
             fn_name = fn_name.split(".")[-1]
         result = await CITool(config).search_function(fn_name)
         result_str = str(result)
-        token_cnt = count_string_tokens(result_str, "gpt-5.4")
+        token_cnt = count_string_tokens(result_str, "gpt-4")
         if token_cnt > 120000:
             raise Exception(
                 "The results are too long. Use other tools to search for the function."

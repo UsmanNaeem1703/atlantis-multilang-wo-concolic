@@ -115,18 +115,18 @@ class BugCandDetectAgent(BaseAgentTemplate):
         self._setup_workflow_graph()
 
         # Initialize LLM models
-        self.llm_o3 = LLM(model="gpt-5.4-mini", config=config)
+        self.llm_o3 = LLM(model="foundation-sec-8b-reasoning", config=config)
         self.llm_4o_key_cond = LLM(
-            model="gpt-5.4", config=config, output_format=KeyConditionReport
+            model="foundation-sec-8b-reasoning", config=config, output_format=KeyConditionReport
         )
-        self.llm_powerful = LLM(model="gpt-5.4-mini", config=config)
-        self.llm_prune_path = LLM(model="claude-sonnet-4-6", config=config)
+        self.llm_powerful = LLM(model="foundation-sec-8b-reasoning", config=config)
+        self.llm_prune_path = LLM(model="foundation-sec-8b-reasoning", config=config)
         self.llm_partial_key_cond = LLM(
-            model="gpt-5.4-mini",
+            model="foundation-sec-8b-reasoning",
             config=config,
         )
         self.llm_extract_key_cond = LLM(
-            model="claude-haiku-4-5-20251001",
+            model="foundation-sec-8b-reasoning",
             config=config,
             output_format=KeyConditionReport,
             max_tokens=8192,
@@ -143,15 +143,15 @@ class BugCandDetectAgent(BaseAgentTemplate):
         # )
 
         self.llm_classify = LLM(
-            model="claude-sonnet-4-6",
+            model="foundation-sec-8b-reasoning",
             config=config,
             output_format=VulnerabilityReport,
         )
         self.llm_sanitizer_validator = LLM(
-            model="gpt-5.4-mini", config=config, output_format=SanitizerValidationReport
+            model="foundation-sec-8b-reasoning", config=config, output_format=SanitizerValidationReport
         )
         self.llm_lightweight_keyword_extracor = LLM(
-            model="gpt-5.4-mini", config=config, output_format=KeywordExtractionReport
+            model="foundation-sec-8b-reasoning", config=config, output_format=KeywordExtractionReport
         )
         # self.ret_file = self.ret_file.with_suffix(".json")
         self.language = config.cp.language

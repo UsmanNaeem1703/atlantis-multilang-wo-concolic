@@ -20,93 +20,33 @@ MODEL_LIST: list[dict[str, str | dict[str, str]]] = [
     {
         "model_name": ATLANTA_CHAT,
         "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gpt-5.4",
-        },
-    },
-    {
-        "model_name": ATLANTA_CHAT,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/claude-sonnet-4-6",
-        },
-    },
-    {
-        "model_name": ATLANTA_CHAT,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/claude-haiku-4-5-20251001",
-        },
-    },
-    {
-        "model_name": ATLANTA_CHAT,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gemini-3.1-pro-preview",
+            "model": "openai/foundation-sec-8b-reasoning",
         },
     },
     # atlanta-tool
     {
         "model_name": ATLANTA_TOOL,
         "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gpt-5.4",
-        },
-    },
-    {
-        "model_name": ATLANTA_TOOL,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/claude-sonnet-4-6",
-        },
-    },
-    {
-        "model_name": ATLANTA_TOOL,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/claude-haiku-4-5-20251001",
+            "model": "openai/foundation-sec-8b-reasoning",
         },
     },
     # atlanta-reasoning
     {
         "model_name": ATLANTA_REASONING,
         "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gpt-5.4",
-        },
-    },
-    {
-        "model_name": ATLANTA_REASONING,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gpt-5.4",
-        },
-    },
-    {
-        "model_name": ATLANTA_REASONING,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gpt-5.4-mini",
-        },
-    },
-    {
-        "model_name": ATLANTA_REASONING,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gpt-5.4-mini",
-        },
-    },
-    {
-        "model_name": ATLANTA_REASONING,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gemini-3.1-pro-preview",
+            "model": "openai/foundation-sec-8b-reasoning",
         },
     },
     {
         "model_name": ATLANTA_CLAUDE,
         "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/claude-sonnet-4-6",
-        },
-    },
-    {
-        "model_name": ATLANTA_CLAUDE,
-        "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/claude-haiku-4-5-20251001",
+            "model": "openai/foundation-sec-8b-reasoning",
         },
     },
     {
         "model_name": ATLANTA_GEMINI,
         "litellm_params": {  # params for litellm completion/embedding call
-            "model": "openai/gemini-3.1-pro-preview",
+            "model": "openai/foundation-sec-8b-reasoning",
         },
     },
 ]

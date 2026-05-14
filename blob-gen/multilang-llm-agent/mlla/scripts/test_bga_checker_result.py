@@ -29,7 +29,7 @@ def call_openai(msg: str) -> str:
         base_url=URL,
     )
     completion = client.chat.completions.create(
-        model="gpt-5.4", messages=[{"role": "user", "content": msg}]
+        model="foundation-sec-8b-reasoning", messages=[{"role": "user", "content": msg}]
     )
 
     return completion.choices[0].message.content

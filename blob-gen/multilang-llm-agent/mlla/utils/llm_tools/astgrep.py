@@ -666,7 +666,7 @@ def create_ag_tools() -> list[PrioritizedTool]:
             raise Exception("The file_path cannot be a directory.")
         results = ag_tool.search_function_definition(regex, file_path)
         results_str = str(results)
-        token_cnt = count_string_tokens(results_str, "gpt-5.4")
+        token_cnt = count_string_tokens(results_str, "gpt-4")
         if token_cnt > 120000:
             raise Exception(
                 "The results are too long. Please provide a more specific query."
@@ -680,7 +680,7 @@ def create_ag_tools() -> list[PrioritizedTool]:
             raise Exception("The file_path cannot be a directory.")
         results = ag_tool.search_type_definition(regex, file_path)
         results_str = str(results)
-        token_cnt = count_string_tokens(results_str, "gpt-5.4")
+        token_cnt = count_string_tokens(results_str, "gpt-4")
         if token_cnt > 120000:
             raise Exception(
                 "The results are too long. Please provide a more specific query."

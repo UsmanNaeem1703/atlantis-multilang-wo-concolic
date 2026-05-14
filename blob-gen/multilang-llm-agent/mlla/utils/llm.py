@@ -297,26 +297,20 @@ def standardize_model_name(model_name: str) -> str:
 
 def get_large_context_model_name(model: str) -> tuple[str, Optional[str]]:
     if "gemini-3.1-pro-preview" in model:
-        return "gpt-5.4", None
+        return "foundation-sec-8b-reasoning", None
     elif "sonnet" in model or "opus" in model:
-        return "gemini-3.1-pro-preview", "gpt-5.4"
+        return "foundation-sec-8b-reasoning", None
     elif "gpt-5.4-mini" in model:
-        return "gemini-3.1-pro-preview", "gpt-5.4"
+        return "foundation-sec-8b-reasoning", None
     elif "haiku" in model:
-        return "gpt-5.4", "gemini-3-flash-preview"
+        return "foundation-sec-8b-reasoning", None
     else:
-        return "gpt-5.4", "gemini-3-flash-preview"
+        return "foundation-sec-8b-reasoning", None
 
 
 def get_rate_limit_fallback_model_name(model: str) -> Optional[str]:
-    # lets do sonnet-4 <-> opus-4
-    # else, we will use o3
-    if "claude-sonnet-4" in model:
-        return "claude-opus-4-6"
-    elif "claude-opus-4" in model:
-        return "claude-sonnet-4-6"
-    else:
-        return "o3"
+    # Always fall back to the same LM Studio model
+    return "foundation-sec-8b-reasoning"
     # lets focus on
     # elif "o3" in model:
     #     return "gemini-3.1-pro-preview"
@@ -428,7 +422,7 @@ class LLM:
                 temperature=temperature,
                 api_key=config.api_key,
                 base_url=config.base_url,
-                tiktoken_model_name="gpt-5.4",
+                tiktoken_model_name="gpt-4",
                 timeout=config.openai_timeout,
                 max_retries=config.openai_max_retries,
                 max_tokens=max_tokens,
@@ -498,11 +492,11 @@ class LLM:
         self.gc = config
         self.tools = tools
         self.summarize_chat_model = ChatOpenAI(
-            model="gpt-5.4-mini",
+            model="foundation-sec-8b-reasoning",
             temperature=0,
             api_key=config.api_key,
             base_url=config.base_url,
-            tiktoken_model_name="gpt-5.4",
+            tiktoken_model_name="gpt-4",
             timeout=config.openai_timeout,
             max_retries=config.openai_max_retries,
             callbacks=self.callbacks,
@@ -1292,7 +1286,7 @@ class LLM:
                     )
                     msg_str += tool_json_str
 
-                token_cnt = count_string_tokens(msg_str, "gpt-5.4")
+                token_cnt = count_string_tokens(msg_str, "gpt-4")
                 token_cnts.append((token_cnt, msg))
         return token_cnts
 

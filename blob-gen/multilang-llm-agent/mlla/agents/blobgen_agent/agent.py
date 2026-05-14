@@ -41,7 +41,7 @@ class BlobGenAgent(BaseAgentTemplate):
 
         # Initialize LLM
         self.llm = llm or LLM(
-            model=os.getenv("BGA_MODEL", "gpt-5.4"),
+            model=os.getenv("BGA_MODEL", "foundation-sec-8b-reasoning"),
             config=config,
             temperature=float(os.getenv("BGA_TEMPERATURE", "0.4")),
             max_tokens=int(os.getenv("BGA_MAX_TOKENS", "4096")),

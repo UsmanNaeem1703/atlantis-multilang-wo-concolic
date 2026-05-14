@@ -114,7 +114,7 @@ def create_rg_tool(is_dev: bool) -> Optional[PrioritizedTool]:
 
         results = grep_tool.search_in(query, path)
         results_str = str(results)
-        token_cnt = count_string_tokens(results_str, "gpt-5.4")
+        token_cnt = count_string_tokens(results_str, "gpt-4")
 
         if token_cnt > 120000:
             raise Exception(
