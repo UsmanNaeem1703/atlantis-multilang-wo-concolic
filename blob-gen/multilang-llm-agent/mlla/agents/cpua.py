@@ -217,7 +217,7 @@ class CPUnderstandAgent(BaseAgentTemplate):
                 3: "get_file_path",
                 4: "mcga",
             },
-            llm_with_tools=os.getenv("CPUA_MODEL", "foundation-sec-8b-reasoning"),
+            llm_with_tools=os.getenv("CPUA_MODEL", "qwen3.5-9b-glm5.1-distill-v1-i1"),
         )
 
         self.builder.add_node("understand_harnesses", self.understand_harnesses)
