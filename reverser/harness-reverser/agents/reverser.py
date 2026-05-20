@@ -46,15 +46,15 @@ EXTRA_HEADERS = "extra_headers"
 ANTHROPIC_BETA_HEADER_KEY = "anthropic-beta"
 ANTHROPIC_BETA_HEADER_VALUE_EXTENDED_CACHE_TTL = "extended-cache-ttl-2025-04-11"
 
-REASONING_MODEL = "claude-sonnet-4-6"
-CODING_MODEL = "claude-sonnet-4-6"
+REASONING_MODEL = "foundation-sec-8b-reasoning"
+CODING_MODEL = "qwen3.5-9b-glm5.1-distill-v1-i1"
 ALL_MODELS = [REASONING_MODEL, CODING_MODEL]
 # For sake of TPM, but no meaning for now.
 DEFAULT_MODEL = CODING_MODEL
 
 MAX_TOKENS = {
-    REASONING_MODEL: 64000,
-    CODING_MODEL: 64000,
+    REASONING_MODEL: 8192,
+    CODING_MODEL: 8192,
 }
 
 ROOT_DIR = Path(__file__).parent.parent
@@ -460,11 +460,7 @@ class ReverserAgent:
         self.model = model
         self.llms: Dict[str, LLM] = {}
         for model in ALL_MODELS:
-            model_kwargs = {
-                EXTRA_HEADERS: {
-                    ANTHROPIC_BETA_HEADER_KEY: ANTHROPIC_BETA_HEADER_VALUE_EXTENDED_CACHE_TTL
-                }
-            } if model.startswith("claude-") else None
+            model_kwargs = None
             llm = LLM(model=model, config=config, output_format=ReverserLLMOutput, max_tokens=MAX_TOKENS[model], model_kwargs=model_kwargs)
             self.llms[model] = llm
 

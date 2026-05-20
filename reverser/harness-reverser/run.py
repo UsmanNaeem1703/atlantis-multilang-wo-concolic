@@ -25,7 +25,7 @@ class ConfigKey(Enum):
     MAX_BYTES_SIZE = "max_len"
 
 
-DEFAULT_MODEL = "claude-sonnet-4-6"
+DEFAULT_MODEL = "qwen3.5-9b-glm5.1-distill-v1-i1"
 
 
 async def main():

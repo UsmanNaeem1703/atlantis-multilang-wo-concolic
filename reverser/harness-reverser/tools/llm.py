@@ -58,19 +58,16 @@ class LLM:
     ):
 
         from langchain_openai import ChatOpenAI
-        from langchain_anthropic import ChatAnthropic
 
         temperature = temperature
-        if model in ["gpt-5.4-mini", "gpt-5.4"]:
-            temperature = 1
 
-        chat_model = ChatAnthropic(
+        chat_model = ChatOpenAI(
             model=model,
             temperature=temperature,
             api_key=config.api_key,
             base_url=config.base_url,
             max_tokens=max_tokens,
-            model_kwargs=model_kwargs,
+            model_kwargs=model_kwargs or {},
         )
 
         self.chat_model = chat_model
